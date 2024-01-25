@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: myapplication:1.0.0-21
-          image: srikanthmadhavarapu/application:1.0.0-21
+          image: srikanth:1.0.0-22
           resources:
             limits:
               cpu: "500m"
