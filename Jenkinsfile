@@ -1,7 +1,7 @@
 pipeline {
     agent any
-    environment {
-          APP_NAME = "reddit-clone-pipeline"
+    environment{
+        APP_NAME = "application"
     }
     stages {
          stage("Cleanup Workspace") {
@@ -11,7 +11,7 @@ pipeline {
          }
          stage("Checkout from SCM") {
              steps {
-                     git branch: 'main', credentialsId: 'github', url: 'https://github.com/Ashfaque-9x/a-reddit-clone-gitops'
+                     git branch: 'main', credentialsId: 'Git-hub', url: 'https://github.com/Srikanth141/myapplication-cd.git'
              }
          }
          stage("Update the Deployment Tags") {
@@ -26,15 +26,17 @@ pipeline {
          stage("Push the changed deployment file to GitHub") {
             steps {
                 sh """
-                    git config --global user.name "Ashfaque-9x"
-                    git config --global user.email "ashfaque.s510@gmail.com"
+                    git config --global user.name "srikanth"
+                    git config --global user.email "srikanth.java1411@gmail.com"
                     git add deployment.yaml
                     git commit -m "Updated Deployment Manifest"
                 """
-                withCredentials([gitUsernamePassword(credentialsId: 'github', gitToolName: 'Default')]) {
-                    sh "git push https://github.com/Ashfaque-9x/a-reddit-clone-gitops main"
+                withCredentials([gitUsernamePassword(credentialsId: 'Git-hub', gitToolName: 'Default')]) {
+                    sh "git push https://github.com/Srikanth141/myapplication-cd main"
                 }
             }
          }
     }
 }
+
+    
