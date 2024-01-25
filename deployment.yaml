@@ -1,20 +1,20 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: myapplication-deployment
+  name: myapplication:1.0.0-14
 spec:
   replicas: 3
   selector:
     matchLabels:
-      app: myapplication
+      app: myapplication:1.0.0-14
   template:
     metadata:
       labels:
-        app: myapplication
+        app: myapplication:1.0.0-14
     spec:
       containers:
-        - name: myapplication
-          image: srikanthmadhavarapu/application:1.0.0-7
+        - name: myapplication:1.0.0-14
+          image: srikanthmadhavarapu/application:1.0.0-14
           resources:
             limits:
               cpu: "500m"
